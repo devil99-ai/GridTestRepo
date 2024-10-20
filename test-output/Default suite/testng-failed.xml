@@ -3,11 +3,14 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="Infosys.SeleniumDemo.LoginTest">
+      <class name="Infosys.SeleniumDemo.GridTest">
         <methods>
-          <include name="test" invocation-numbers="0 1 2"/>
+          <include name="setup"/>
+          <include name="applicationLaunch"/>
+          <include name="E2E_Testing"/>
+          <include name="closeDriver"/>
         </methods>
-      </class> <!-- Infosys.SeleniumDemo.LoginTest -->
+      </class> <!-- Infosys.SeleniumDemo.GridTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

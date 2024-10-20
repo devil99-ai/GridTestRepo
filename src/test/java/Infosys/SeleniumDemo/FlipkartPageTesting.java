@@ -5,6 +5,8 @@ import org.testng.annotations.Test;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.time.Duration;
 import java.util.Iterator;
 import java.util.List;
@@ -24,7 +26,9 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
@@ -240,6 +244,21 @@ public class FlipkartPageTesting {
 //				driver.findElement(By.linkText("LogOut")).click();
 			}
 			                    }
+	@Test
+	public void GridTest() throws MalformedURLException {
+		ChromeOptions chromeOptions = new ChromeOptions();
+		chromeOptions.setCapability("browserVersion", "129");
+		chromeOptions.setCapability("platformName", "Windows");
+		// Showing a test name instead of the session id in the Grid UI
+		chromeOptions.setCapability("se:name", "My simple test"); 
+		// Other type of metadata can be seen in the Grid UI by clicking on the 
+		// session info or via GraphQL
+		chromeOptions.setCapability("se:sampleMetadata", "Sample metadata value"); 
+		WebDriver driver = new RemoteWebDriver(new URL("http://192.168.0.202:4444"), chromeOptions);
+		driver.get("https://www.google.com");
+		driver.quit();
+
+	}
 	}
 
 
